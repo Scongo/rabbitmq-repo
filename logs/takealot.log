@@ -1,0 +1,4 @@
+2022-06-06 20:51:24,141 [takealot] ERROR Rabbit - 
+java.lang.NullPointerException
+	at Rabbit.createChannel(Rabbit.java:27)
+	at Rabbit.main(Rabbit.java:20)
