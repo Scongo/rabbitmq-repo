@@ -20,14 +20,14 @@ import java.util.concurrent.Executors;
 public class Rabbit {
 
 	private static Logger log = LoggerFactory.getLogger(Rabbit.class);
-	public static Config config;
+	public static Config config = new Config();
 	private static OrderRepository orderRepository;
 	private static EntityManagerFactory emf = null;
 	private static EntityManager em = null;
 
 	public static void main(String[] args) {
 
-		Channel channel = createChannel(new ConnectionFactory( ));
+		Channel channel = createChannel(new ConnectionFactory());
 		System.out.println("Start here");
 
 		emf = Persistence.createEntityManagerFactory("paymentReport");
@@ -56,7 +56,7 @@ public class Rabbit {
 	private static Channel createChannel(ConnectionFactory connectionFactory) {
 		try {
 			connectionFactory.setUri("amqp://" + config.getString("rabbit.username") + ":" + config.getString("rabbit.password") + "@" + config.getString("rabbit.host") + ":" + config.getString("rabbit.port") + "/" + config.getString("rabbit.virtual"));
-			return connectionFactory.newConnection(Executors.newFixedThreadPool(config.getInt("rabbit.consumers").intValue( ))).createChannel( );
+			return connectionFactory.newConnection(Executors.newFixedThreadPool(3)).createChannel( );
 		} catch (Exception e) {
 			log.error(e.getMessage( ), e);
 			System.exit(1);

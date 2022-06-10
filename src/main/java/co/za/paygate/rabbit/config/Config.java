@@ -26,6 +26,10 @@ public class Config {
         new Config(config, "");
     }
 
+    public Config() {
+
+    }
+
     public static String getEnv(String[] args) {
         String[] props = Op.of(args).get(new String[]{""});
         for (String prop: props) {

@@ -43,3 +43,48 @@
 2022-06-10 00:51:58,330 [takealot] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
 2022-06-10 00:51:59,108 [takealot] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@46cf05f7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
 2022-06-10 00:51:59,351 [takealot] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2022-06-10 05:06:22,514 [takealot] ERROR Rabbit - 
+java.lang.NullPointerException
+	at Rabbit.createChannel(Rabbit.java:58)
+	at Rabbit.main(Rabbit.java:30)
+2022-06-10 05:07:47,629 [takealot] ERROR Rabbit - 
+java.lang.NullPointerException
+	at Rabbit.createChannel(Rabbit.java:58)
+	at Rabbit.main(Rabbit.java:30)
+2022-06-10 05:09:31,717 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 05:09:31,718 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 05:09:31,719 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 05:09:31,720 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 05:09:31,720 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 05:09:32,181 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 05:09:47,004 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1314)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1202)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:59)
+	at Rabbit.main(Rabbit.java:30)
+2022-06-10 05:13:48,610 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 05:13:48,610 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 05:13:48,610 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 05:13:48,610 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 05:13:48,610 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 05:13:52,755 [takealot] ERROR Rabbit - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:81)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:162)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:394)
+	at java.net.Socket.connect(Socket.java:606)
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:50)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:60)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:99)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:900)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:817)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:984)
+	at Rabbit.createChannel(Rabbit.java:59)
+	at Rabbit.main(Rabbit.java:30)
