@@ -12,10 +12,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "ZZZZ_Product")
-@NamedQueries({
-		@NamedQuery(name = "Products.findByName",
-				query = "SELECT product FROM Products product WHERE product.name = :name")
-})
 public class Products {
 
 	@Id
@@ -36,16 +32,6 @@ public class Products {
 	@NotNull
 	private String desc;
 
-	@OneToMany(mappedBy = "products", cascade = {CascadeType.ALL})
-	Set<OrderItems> orderItems = new HashSet<>();
-
-	public Set<OrderItems> getOrderItems() {
-		return orderItems;
-	}
-
-	public void setOrderItems(Set<OrderItems> orderItems) {
-		this.orderItems = orderItems;
-	}
 
 	public Integer getId() {
 		return id;

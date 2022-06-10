@@ -13,6 +13,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "ZZZZ_Orders")
+@NamedQueries({
+		@NamedQuery(name = "Order.updateById",
+				query = "UPDATE Order order SET order.amount = :amount WHERE order.id = :id")
+})
 public class Order {
 
 	@Id
@@ -41,8 +45,19 @@ public class Order {
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	Set<OrderPayment> orderPayments = new HashSet<>();
 
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-	Set<OrderItems> orderItems = new HashSet<>();
+	@ManyToMany
+	@JoinTable(name = "zzzz_order_items",
+			joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+	Set<Products> product = new HashSet<>();
+
+	public Set<Products> getProduct() {
+		return product;
+	}
+
+	public void setProduct(Set<Products> product) {
+		this.product = product;
+	}
 
 	public Set<OrderPayment> getOrderPayments() {
 		return orderPayments;
@@ -50,14 +65,6 @@ public class Order {
 
 	public void setOrderPayments(Set<OrderPayment> orderPayments) {
 		this.orderPayments = orderPayments;
-	}
-
-	public Set<OrderItems> getOrderItems() {
-		return orderItems;
-	}
-
-	public void setOrderItems(Set<OrderItems> orderItems) {
-		this.orderItems = orderItems;
 	}
 
 	public Integer getId() {
