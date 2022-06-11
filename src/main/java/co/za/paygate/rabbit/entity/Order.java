@@ -13,10 +13,6 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "ZZZZ_Orders")
-@NamedQueries({
-		@NamedQuery(name = "Order.updateById",
-				query = "UPDATE Order order SET order.amount = :amount WHERE order.id = :id")
-})
 public class Order {
 
 	@Id
@@ -115,14 +111,5 @@ public class Order {
 		this.createdAt = createdAt;
 	}
 
-	public static void saveOrder(EntityManager em, Order order) {
-			em.getTransaction().begin();
-			em.merge(order);
-			em.getTransaction().commit();
-	}
-	public static List<Order> getOrder(EntityManager em){
-		List<Order> orderQuery = em.createQuery("from Order", Order.class)
-				.getResultList();
-		return orderQuery;
-	}
+
 }

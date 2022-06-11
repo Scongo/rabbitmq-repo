@@ -36,10 +36,9 @@ public class OrderRepository {
             return Optional.empty();
         }
 
-        public void updateOrderPayment(Integer id, Integer amount) {
-            entityManager.createNamedQuery("Order.updateById", Order.class)
+    public Order findOrderById(Integer id) {
+        return (Order) entityManager.createQuery("FROM Order u WHERE u.id = :id")
                 .setParameter("id", id)
-                .setParameter("amount", amount);
+                .getSingleResult();
     }
-
 }

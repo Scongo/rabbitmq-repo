@@ -11,6 +11,10 @@ import java.util.Set;
  * Created by AlecE on 6/15/2017.
  */
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "Products.findByName",
+				query = "SELECT product FROM Products product WHERE product.name = :name")
+})
 @Table(name = "ZZZZ_Product")
 public class Products {
 
@@ -67,16 +71,5 @@ public class Products {
 	public Products setDesc(String desc) {
 		this.desc = desc;
 		return this;
-	}
-
-	public static void saveProduct(EntityManager em, Products products) {
-		em.getTransaction().begin();
-		em.persist(products);
-		em.getTransaction().commit();
-	}
-	public static List<Products> getProducts(EntityManager em){
-		List<Products> productQuery = em.createQuery("from Products", Products.class)
-				.getResultList();
-		return productQuery;
 	}
 }

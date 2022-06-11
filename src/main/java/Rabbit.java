@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -30,34 +31,57 @@ public class Rabbit {
 
 	public static void main(String[] args) {
 
-		config = new Config("src/main/resources/config/dev/application.properties");
-		Channel channel = createChannel(new ConnectionFactory());
-		config.load();
-		produceMsg(channel);
+		//config = new Config("src/main/resources/config/dev/application.properties");
+		//Channel channel = createChannel(new ConnectionFactory());
+		//config.load();
+		//produceMsg(channel);
 
 		System.out.println("Start here");
 
 		emf = Persistence.createEntityManagerFactory("paymentReport");
 		em = emf.createEntityManager();
 		orderRepository = new OrderRepository(em);
+		Scanner scanner = new Scanner(System.in);
+		Order order = new Order();
 
-		List<Order> orderList = orderRepository.findAll();
-		System.out.println("Orders payed for :");
-		orderList.forEach(order1 -> {
-			if(order1.getStatus() != null){
-				if(order1.getStatus().equals(0)){
-					System.out.println("This order :"+order1.getDesc()+ "has declined please pay amount :");
-					Scanner scanner = new Scanner(System.in);
-					int amount = scanner.nextInt();
-					orderRepository.updateOrderPayment(order1.getId(), amount);
-					order1.getOrderPayments().forEach(pay ->{
-						pay.getStatusDesc();
-						System.out.println(order1.getId() +" , "+ order1.getDesc()+" , "+
-								order1.getAmount()+" , "+ pay.getStatusDesc());
-					});
-				}
+		processPayment(order, scanner);
+
+	}
+
+	private static void processPayment(Order order, Scanner scanner){
+		String tryAgain = "";
+		do {
+			if (tryAgain.equalsIgnoreCase("n")) {
+				System.out.println("Payment closed");
+				break;
 			}
-		});
+			System.out.println("Enter order id to verify order :");
+			int orderId = scanner.nextInt();
+
+			order = verifyOrder(orderId);
+			if (order != null) {
+				if (order.getStatus() != null && order.getStatus().equals(0)) {
+					System.out.println("This order has no payment please pay an amount of R:" + order.getAmount());
+					int amount = scanner.nextInt();
+					System.out.println("Successful payment of R" + amount);
+				} else {
+					System.out.println("No payment required for");
+				}
+			} else {
+				System.out.println("Order id not found");
+			}
+			scanner.nextLine();
+			System.out.println("Would you like to make payment again(y/n)? :");
+			tryAgain = scanner.nextLine();
+		}while (tryAgain.equalsIgnoreCase("y") || !tryAgain.equalsIgnoreCase(""));
+	}
+
+	private static Order verifyOrder(Integer orderId){
+		try {
+			return orderRepository.findOrderById(orderId);
+		}catch (NoResultException e){
+			return null;
+		}
 	}
 
 	private static void produceMsg(Channel channel){
