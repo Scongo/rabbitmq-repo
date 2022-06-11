@@ -88,3 +88,560 @@ java.net.ConnectException: Connection refused: connect
 	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:984)
 	at Rabbit.createChannel(Rabbit.java:59)
 	at Rabbit.main(Rabbit.java:30)
+2022-06-10 05:37:16,962 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 05:37:16,962 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 05:37:16,962 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 05:37:16,962 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 05:37:16,962 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 05:37:21,963 [takealot] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured
+java.net.SocketException: Socket Closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:164)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:571)
+	at java.lang.Thread.run(Thread.java:745)
+2022-06-10 05:37:23,588 [takealot] ERROR Rabbit - 
+java.io.IOException
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:105)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:101)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:123)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:381)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:62)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:99)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:900)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:817)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:984)
+	at Rabbit.createChannel(Rabbit.java:59)
+	at Rabbit.main(Rabbit.java:30)
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=530, reply-text=NOT_ALLOWED - vhost  not found, class-id=10, method-id=40)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:32)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:366)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:229)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:117)
+	... 9 more
+2022-06-10 05:37:23,588 [takealot] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2022-06-10 05:40:47,114 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 05:40:47,114 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 05:40:47,114 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 05:40:47,114 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 05:40:47,114 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 05:40:48,848 [takealot] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2022-06-10 05:40:48,981 [takealot] ERROR Rabbit - 
+java.io.IOException
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:105)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:101)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:123)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:381)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:62)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:99)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:900)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:817)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:984)
+	at Rabbit.createChannel(Rabbit.java:59)
+	at Rabbit.main(Rabbit.java:30)
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=530, reply-text=NOT_ALLOWED - vhost  not found, class-id=10, method-id=40)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:32)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:366)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:229)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:117)
+	... 9 more
+2022-06-10 05:40:48,991 [takealot] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Socket closed)
+2022-06-10 05:47:09,884 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 05:47:09,884 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 05:47:09,884 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 05:47:09,884 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 05:47:26,085 [takealot] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2022-06-10 06:08:25,557 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 06:08:26,479 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 06:08:27,026 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 06:08:27,838 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 06:48:35,087 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 06:48:35,087 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 06:48:50,545 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 06:48:51,139 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 06:48:51,733 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 06:48:52,264 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 06:59:20,577 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 06:59:20,609 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 06:59:23,296 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 06:59:24,312 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 06:59:24,327 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 06:59:24,327 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 06:59:24,828 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 06:59:25,828 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 06:59:25,953 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 06:59:25,953 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 06:59:25,953 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 06:59:25,953 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 07:02:26,651 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 07:02:26,651 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 07:10:08,273 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 07:10:08,273 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 07:10:15,807 [takealot] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured
+java.net.SocketException: Socket Closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:164)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:571)
+	at java.lang.Thread.run(Thread.java:745)
+2022-06-10 08:47:13,170 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 08:47:13,201 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 08:47:16,326 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 08:47:16,920 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 08:47:16,920 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 08:47:16,920 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 08:47:17,217 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 08:47:17,983 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 08:47:18,045 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 08:47:18,045 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 08:47:18,045 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 08:47:18,061 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 08:56:27,391 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 08:56:27,407 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 08:56:28,576 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 08:56:28,873 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 08:56:28,873 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 08:56:28,873 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 08:56:28,966 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 08:56:29,279 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 08:56:29,294 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 08:56:29,294 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 08:56:29,294 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 08:56:29,310 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 08:58:39,022 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 08:58:39,022 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:29:46,282 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 09:29:46,282 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:31:19,764 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 09:31:19,764 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:31:23,926 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 09:31:24,457 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 09:31:24,457 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 09:31:24,457 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 09:31:24,738 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 09:31:25,285 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 09:31:25,332 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 09:31:25,332 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 09:31:25,332 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 09:31:25,348 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 09:35:04,759 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading application.properties from resources
+2022-06-10 09:35:04,759 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:41:54,724 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:41:54,724 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:41:56,349 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 09:41:56,599 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 09:41:56,599 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 09:41:56,599 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 09:41:56,693 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 09:41:56,959 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 09:41:56,990 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 09:41:56,990 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 09:41:56,990 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 09:41:56,990 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 09:43:34,292 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:48:21,513 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:48:55,868 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:50:32,593 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:50:54,494 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:51:17,070 [takealot] ERROR co.za.paygate.rabbit.config.Config - Unable to find ${configFile}
+2022-06-10 09:51:26,574 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 09:51:27,011 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 09:51:27,027 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 09:51:27,027 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 09:51:27,152 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 09:51:27,574 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 09:51:27,589 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 09:51:27,589 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 09:51:27,589 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 09:51:27,605 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 09:52:47,900 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:57:53,669 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 09:58:23,688 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 09:58:23,907 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 09:58:23,907 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 09:58:23,907 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 09:58:24,001 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 09:58:24,360 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 09:58:24,376 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 09:58:24,376 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 09:58:24,376 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 09:58:24,391 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 09:59:48,212 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:02:35,390 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:43:57,762 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:43:58,309 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 10:43:58,309 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 10:43:58,309 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 10:43:59,246 [takealot] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured
+java.net.SocketException: Socket Closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:164)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:571)
+	at java.lang.Thread.run(Thread.java:745)
+2022-06-10 10:43:59,262 [takealot] ERROR Rabbit - ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile.
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:342)
+	at com.rabbitmq.client.impl.recovery.RecoveryAwareAMQConnectionFactory.newConnection(RecoveryAwareAMQConnectionFactory.java:62)
+	at com.rabbitmq.client.impl.recovery.AutorecoveringConnection.init(AutorecoveringConnection.java:99)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:900)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:817)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:984)
+	at Rabbit.createChannel(Rabbit.java:89)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 10:45:03,256 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:45:07,975 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 10:45:08,428 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 10:45:08,428 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 10:45:08,428 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 10:45:08,741 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 10:45:09,506 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 10:45:09,553 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 10:45:09,553 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 10:45:09,553 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 10:45:09,553 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 10:47:58,000 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:47:58,796 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 10:47:58,796 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 10:47:58,796 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 10:47:58,796 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 10:47:58,796 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:89)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 10:49:49,004 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:50:23,250 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 10:50:25,243 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 10:50:26,040 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 10:50:26,852 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 10:58:02,116 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 10:58:06,245 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 10:58:06,245 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 10:58:06,245 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 10:58:06,245 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 10:58:06,260 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 10:58:06,260 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 10:58:06,260 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 10:58:06,260 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 10:58:06,260 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 10:59:09,407 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 10:59:09,407 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:76)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:03:16,702 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:03:22,370 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:03:22,370 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:03:22,370 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:03:22,370 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:03:22,370 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:74)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:05:58,503 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:05:58,738 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:05:58,738 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:05:58,738 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:05:58,738 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:05:58,769 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:74)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:06:54,663 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:06:54,975 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:06:54,975 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:06:54,975 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:06:54,975 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:06:54,975 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:74)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:07:10,442 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:08:06,032 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:08:06,032 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:08:06,032 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:08:06,032 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:14:03,964 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:15:47,849 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:15:47,849 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:15:47,849 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:15:47,849 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:15:47,849 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:75)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:16:09,606 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:24:40,579 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:24:40,767 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:24:40,767 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:24:40,767 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:24:40,767 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:24:40,767 [takealot] ERROR Rabbit - For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:592)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at Rabbit.createChannel(Rabbit.java:75)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:30:23,013 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:30:23,217 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property 3
+2022-06-10 11:30:23,217 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:76)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:32:35,350 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:32:35,506 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 11:32:35,522 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:76)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:47:39,709 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:47:40,099 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 11:47:40,099 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:76)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:49:15,090 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:49:15,637 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:49:15,637 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:49:15,637 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:49:15,637 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:49:15,653 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:49:15,653 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property 3
+2022-06-10 11:49:15,653 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:76)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 11:49:56,598 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:49:56,785 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:49:56,785 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:49:56,785 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:49:56,785 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:49:56,785 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:49:58,207 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 11:50:00,748 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 11:50:02,154 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 11:50:02,186 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 11:50:02,248 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 11:50:03,170 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 11:50:04,123 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 11:50:04,186 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 11:50:04,186 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 11:50:04,186 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 11:50:04,186 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 11:59:26,199 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 11:59:27,202 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 11:59:27,202 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 11:59:27,202 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 11:59:27,202 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 11:59:27,226 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 11:59:27,892 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 12:05:25,643 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:05:25,924 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:05:25,924 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:05:25,924 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:05:25,924 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:05:25,924 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:05:26,439 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 12:05:29,862 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 12:05:30,565 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 12:05:30,565 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 12:05:30,580 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 12:05:30,940 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 12:05:31,737 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 12:05:31,783 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 12:05:31,783 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 12:05:31,783 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 12:05:31,783 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 12:46:04,464 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:46:04,839 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:46:04,839 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:46:04,839 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:46:04,839 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:46:04,839 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:46:05,292 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 12:46:06,089 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 12:46:06,230 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 12:46:06,246 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 12:46:06,246 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 12:46:06,324 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 12:46:06,730 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 12:46:06,761 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 12:46:06,777 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 12:46:06,777 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 12:46:06,777 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 12:48:31,416 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:48:31,681 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 12:48:31,681 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:77)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 12:50:56,756 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:50:56,959 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 12:50:56,959 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:77)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 12:53:39,432 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:53:49,103 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:53:49,103 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:53:49,103 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:53:49,103 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:53:49,118 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:55:12,834 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:55:49,137 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:55:52,003 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:55:52,815 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:56:13,701 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.consumers
+2022-06-10 12:56:13,701 [takealot] ERROR Rabbit - 
+java.lang.IllegalArgumentException
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1307)
+	at java.util.concurrent.ThreadPoolExecutor.<init>(ThreadPoolExecutor.java:1195)
+	at java.util.concurrent.Executors.newFixedThreadPool(Executors.java:89)
+	at Rabbit.createChannel(Rabbit.java:77)
+	at Rabbit.main(Rabbit.java:34)
+2022-06-10 12:57:09,204 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 12:57:16,007 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:57:16,007 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 12:57:16,007 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 12:57:16,007 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 12:57:16,007 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 12:57:36,532 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 12:58:23,751 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 12:58:44,140 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 12:58:44,719 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 12:58:44,719 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 12:58:44,719 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 12:58:45,032 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 12:58:45,829 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 12:58:45,907 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 12:58:45,923 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 12:58:45,923 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 12:58:45,923 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2022-06-10 13:11:37,449 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading src/main/resources/config/dev/application.properties from resources
+2022-06-10 13:11:37,668 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.username
+2022-06-10 13:11:37,683 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.password
+2022-06-10 13:11:37,683 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.host
+2022-06-10 13:11:37,683 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.port
+2022-06-10 13:11:37,683 [takealot] WARN  co.za.paygate.rabbit.config.Config - Missing property rabbit.virtual
+2022-06-10 13:11:38,011 [takealot] INFO  co.za.paygate.rabbit.config.Config - Loading ${args.size} arg(s) into config
+2022-06-10 13:11:39,121 [takealot] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: paymentReport
+	...]
+2022-06-10 13:11:39,699 [takealot] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.4.Final}
+2022-06-10 13:11:39,699 [takealot] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2022-06-10 13:11:39,699 [takealot] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2022-06-10 13:11:39,949 [takealot] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-06-10 13:11:40,605 [takealot] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2022-06-10 13:11:40,621 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/payment_report]
+2022-06-10 13:11:40,621 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=root, password=****}
+2022-06-10 13:11:40,621 [takealot] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2022-06-10 13:11:40,637 [takealot] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)

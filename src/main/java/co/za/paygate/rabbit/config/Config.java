@@ -3,6 +3,7 @@ package co.za.paygate.rabbit.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -52,10 +53,10 @@ public class Config {
             log.info("Loading " + config + " from " + (Op.of(env).get("").isEmpty() ? "resources" : "resources/config/" + env));
 
             // build up config file name
-            configFile = Op.of(env).get("").isEmpty() ? "/config/${config}" : "/config/" + env + "/" + config;
+            configFile = Op.of(env).get("").isEmpty() ? config : "/config/" + env + "/" + config;
 
             // load config file
-            InputStreamReader inputStream = new InputStreamReader(this.getClass().getResourceAsStream(configFile));
+            FileInputStream inputStream = new FileInputStream(configFile);
 
             // load properties in props
             props.load(inputStream);
