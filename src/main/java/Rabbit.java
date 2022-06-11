@@ -3,17 +3,15 @@ import co.za.paygate.rabbit.entity.Order;
 import co.za.paygate.rabbit.repository.OrderRepository;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.DeliverCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 
@@ -28,13 +26,13 @@ public class Rabbit {
 	private static EntityManagerFactory emf = null;
 	private static EntityManager em = null;
 	private final static String queue_name = "myqueue";
+    private final static String exchange_name = "myexchange";
+    private static String orderDetails = "";
 
 	public static void main(String[] args) {
 
-		//config = new Config("src/main/resources/config/dev/application.properties");
-		//Channel channel = createChannel(new ConnectionFactory());
-		//config.load();
-		//produceMsg(channel);
+		config = new Config("src/main/resources/config/dev/application.properties");
+		config.load();
 
 		System.out.println("Start here");
 
@@ -44,11 +42,16 @@ public class Rabbit {
 		Scanner scanner = new Scanner(System.in);
 		Order order = new Order();
 
-		processPayment(order, scanner);
-
+		processPaymentAmount(order, scanner);
+		Channel channel = createChannel(new ConnectionFactory());
+		if(channel != null){
+			produceMsg(channel);
+		}
+		channel = createChannel(new ConnectionFactory());
+		consumeMsg(channel);
 	}
 
-	private static void processPayment(Order order, Scanner scanner){
+	private static void processPaymentAmount(Order order, Scanner scanner){
 		String tryAgain = "";
 		do {
 			if (tryAgain.equalsIgnoreCase("n")) {
@@ -63,6 +66,7 @@ public class Rabbit {
 				if (order.getStatus() != null && order.getStatus().equals(0)) {
 					System.out.println("This order has no payment please pay an amount of R:" + order.getAmount());
 					int amount = scanner.nextInt();
+					orderDetails = order.getId()+"/"+amount;
 					System.out.println("Successful payment of R" + amount);
 				} else {
 					System.out.println("No payment required for");
@@ -88,11 +92,33 @@ public class Rabbit {
 		try {
 
 			channel.queueDeclare(queue_name, false, false, false, null);
-			String message = "Can you see my txt";
-			channel.basicPublish("", queue_name, null, message.getBytes());
-			System.out.println(" [x] Sent '" + message +"'");
+			channel.basicPublish(exchange_name, queue_name, null, orderDetails.getBytes());
+			System.out.println(" [x] Sent '" + orderDetails +"'");
 		} catch (IOException e) {
 			throw new RuntimeException(e);
+		}
+	}
+
+	private static String consumeMsg(Channel channel){
+		try {
+//			channel.queueDeclare(queue_name, false, false, false, null);
+//			channel.basicPublish(exchange_name, queue_name, null, orderDetails.getBytes());
+//			System.out.println(" [x] Sent '" + orderDetails +"'");
+//
+			channel.exchangeDeclare(exchange_name, "fanout");
+			String queueName = channel.queueDeclare().getQueue();
+			channel.queueBind(queueName, exchange_name, "");
+
+			System.out.println("Waiting for rabbit mq messages..");
+
+			DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+				String message = new String(delivery.getBody(), "UTF-8");
+				System.out.println(" [x] Received '" + message + "'");
+			};
+			channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });
+            return null;
+		} catch (IOException e) {
+			return null;
 		}
 	}
 
